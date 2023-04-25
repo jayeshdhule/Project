@@ -1,0 +1,19 @@
+.logo_animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    // min-height: 100vh;
+    margin-top: 100px;
+    overflow: hidden;
+    img{
+       height: 100%;
+       width: 100%;
+       object-fit: contain;
+       min-width: 400px;
+       min-height: 300px;
+        
+}
+
+
+}

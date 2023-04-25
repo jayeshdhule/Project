@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import OauthButtonGoogle from "components/OauthButtonGoogle/OauthButtonGoogle";
 import { authContext } from "contexts/auth";
+import Divider from 'components/Divider/Divider';
+
 
 // styles for this page are in index.scss
 export default function Register() {
@@ -11,7 +13,9 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
+
   const { register } = useContext(authContext);
+ 
 
   async function handleSubmit(e) {
     try {
@@ -41,20 +45,23 @@ export default function Register() {
     }
   }
 
+
+
   return (
-    <div className="page" id="register-page">
-      <h2>Create New Account</h2>
+    <div className="page" id="register-page" style={ {
+      paddingTop: '3rem',
+    }
+  }>
+      <div className="sign-up-card">
+      <h2>Quotify</h2>
 
       <form action="POST" className="form" onSubmit={handleSubmit}>
         <OauthButtonGoogle />
 
-        <div className="or">
-          <hr />
-          <span className="text">Or</span>
-        </div>
+        <Divider>OR</Divider>
 
         <div className="form__field">
-          <label>Name:</label>
+          {/* <label>Name:</label> */}
           <input
             name="name"
             type="text"
@@ -66,12 +73,12 @@ export default function Register() {
         </div>
 
         <div className="form__field">
-          <label>Picture:</label>
+          {/* <label>Picture:</label> */}
           <input name="avatar" type="file" accept="image/jpeg, image/jpg, image/png" />
         </div>
 
         <div className="form__field">
-          <label>Email:</label>
+          {/* <label>Email:</label> */}
           <input
             name="email"
             type="email"
@@ -84,7 +91,7 @@ export default function Register() {
         </div>
 
         <div className="form__field">
-          <label>Password:</label>
+          {/* <label>Password:</label> */}
           <input
             name="password"
             type="password"
@@ -97,7 +104,7 @@ export default function Register() {
         </div>
 
         <div className="form__field">
-          <label>Confirm password:</label>
+          {/* <label>Confirm password:</label> */}
           <input
             name="confirmPassword"
             type="password"
@@ -121,6 +128,7 @@ export default function Register() {
           <Link to="/login">Login</Link>
         </span>
       </form>
+      </div>
     </div>
   );
 }

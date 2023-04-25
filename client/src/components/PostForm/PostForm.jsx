@@ -112,11 +112,11 @@ export default function PostForm({ defaults, changes }) {
     <form className="form post-form" onSubmit={handleSubmit}>
       <div className="left">
         <div className="form__field">
-          <label>Blog title:</label>
+          <label>Quote title:</label>
           <input
             name="title"
             type="text"
-            placeholder="Blog Title"
+            placeholder="Quote Title"
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -166,7 +166,7 @@ export default function PostForm({ defaults, changes }) {
                 onChange={(e) => setCategory(cat)}
                 checked={cat === category}
               />
-              &nbsp;
+              {/* &nbsp; */}
               <label>{cat}</label>
             </div>
           ))}

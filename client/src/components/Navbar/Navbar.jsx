@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { BookOpen } from "react-feather";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "contexts/auth";
 import "./Navbar.scss";
@@ -35,13 +34,11 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="wrapper">
         <h1>
-          <Link to="/">
-            <BookOpen />
-            <div>
-              <span>Writer's</span>
-              <small>Avenue</small>
+            <div className="first_div">
+              <img className="logo_img" src="../assests/img/logo-q-white.png" alt="" />
+              <div style={{fontFamily:"'Jost', sans-serif", fontWeight:"500"}}>Quotify</div>
             </div>
-          </Link>
+        
         </h1>
         <div className="navbar__links">
           <NavLink to="/" end={true}>

@@ -2,13 +2,13 @@ import bcrypt from "bcrypt";
 import dbPool from "../util/database.js";
 
 export default class User {
-  static async create({ name, email, password = null, avatarPath, authMethod = "email" }) {
+  static async create({ name, email, password, avatarPath, authMethod = "email" }) {
     let conn;
     try {
       conn = await dbPool.getConnection();
-      const hashedPassword = null;
+      let hashedPassword = null;
       if (password) {
-        await bcrypt.hash(password, 12);
+        hashedPassword=   await bcrypt.hash(password, 12);
       }
 
       const query = "INSERT INTO `User` (name, email, password, avatarPath, authMethod) VALUES (?, ?, ?, ?, ?)";

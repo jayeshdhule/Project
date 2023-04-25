@@ -1,2 +1,2 @@
-const categories = ["art", "business", "cinema", "food", "science", "technology"];
+const categories = ["life", "love", "pain", "motivation", "mental health", "travel"];
 export default categories;

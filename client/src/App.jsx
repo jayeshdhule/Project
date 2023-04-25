@@ -4,6 +4,7 @@ import Navbar from "components/Navbar/Navbar";
 import { authContext } from "contexts/auth";
 import Home from "pages/Home/Home";
 import Login from "pages/Login/Login";
+import Footer from "components/Footer/Footer";
 import OauthGoogle from "pages/OauthGoogle/OauthGoogle";
 import PageNotFound from "pages/PageNotFound/PageNotFound";
 import Profile from "pages/Profile/Profile";
@@ -12,6 +13,10 @@ import PostEdit from "pages/PostEdit/PostEdit";
 import PostChanges from "pages/PostChanges/PostChanges";
 import PostWrite from "pages/PostWrite/PostWrite";
 import Register from "pages/Register/Register";
+import About from "components/About/About";
+import Privacy from "components/Privacy/Privacy";
+import Help from "components/Help/Help";
+import TnC from "components/TnC/TnC";
 import "./App.scss";
 
 export default function App() {
@@ -24,6 +29,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/posts/:id" element={<Post />} />
           <Route path="/users/:id" element={<Profile />} />
+
+          <Route path="/about" element={<About/>} />
+          <Route path="/help" element={<Help/>} />
+          <Route path="/privacy" element={<Privacy/>} />
+          <Route path="/tnc" element={<TnC/>} />
 
           {/* these routes should only be accessible when the user IS NOT logged in */}
           <Route element={<OnlyUnauthRoutes redirectTo="/" />}>
@@ -44,7 +54,9 @@ export default function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
+      <Footer />
     </div>
+    
   );
 }
 

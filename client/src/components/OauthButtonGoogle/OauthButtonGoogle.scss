@@ -1,9 +1,10 @@
 .oauth-btn-google {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 5px;
-  background-color: #202124;
-  color: #e8eaed;
+  background-color: white;
+  color: black;
   border: none;
   border-radius: 4px;
   font-family: var(--font);
@@ -14,7 +15,8 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #4b4b4e;
+    background-color:#9A8C98 ;
+    color: white;
   }
 
   &:disabled {
@@ -23,8 +25,7 @@
   }
 
   &__icon {
-    background-color: #fff;
-    border-radius: 4px;
+    
     width: 28px;
     height: 28px;
     display: flex;
@@ -38,6 +39,7 @@
   }
 
   &__text {
-    margin: 0 auto;
+   
+    margin-left: 1rem;
   }
 }

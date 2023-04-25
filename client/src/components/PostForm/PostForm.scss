@@ -3,6 +3,11 @@
 
   .left {
     flex-grow: 1;
+
+    .form__field label{
+      color: var(--white);
+      background-color: var(--bg-color);
+    }
   }
 
   .right {
@@ -59,13 +64,19 @@
 
   .category-card .category {
     display: flex;
-    align-items: center;
     text-transform: capitalize;
     margin-right: 1rem;
 
     label {
-      margin-bottom: 0;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5 rem;
       line-height: 1;
+      color: white;
+    }
+
+    input[type="radio"] {
+      width: 3rem;
+      accent-color: var(--primary-color);
     }
   }
 
@@ -167,7 +178,7 @@
     background-color: var(--bg-color);
     border-radius: 5px;
     border: none !important;
-    color: #fff;
+    color: var(--white);
 
     .ql-picker-item.ql-selected,
     .ql-picker-item:hover {
@@ -180,7 +191,7 @@
     border-radius: 5px;
     border: none;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: var(--white);
     padding: 5px 12px;
     white-space: nowrap;
 

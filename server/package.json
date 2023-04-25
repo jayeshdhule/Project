@@ -1,5 +1,5 @@
 {
-  "name": "writers-avenue-server",
+  "name": "quotify-server",
   "private": true,
   "version": "0.0.0",
   "main": "index.js",

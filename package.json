@@ -1,16 +1,17 @@
 {
-  "name": "writers-avenue",
+  "name": "quotify",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "setup": "node ./scripts/setup.js"
   },
-  "repository": "https://github.com/biraj21/writers-avenue.git",
-  "author": "Biraj <biraj.pub@gmail.com>",
+  "repository": "https://github.com/akshathamke/Quotify.git",
+  "author": "Aksha <thamkeaksha@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "mariadb": "^3.0.2"
+    "mariadb": "^3.1.1",
+    "yarn": "^1.22.19"
   }
 }

@@ -40,7 +40,7 @@ router.post("/register", upload.single("avatar"), async (req, res, next) => {
     let { name, email, password, confirmPassword } = req.body;
     name = name.trim();
     email = email.trim();
-
+    console.log(req.body.password)
     if (await User.getByEmail(email)) {
       throw new ValidationError("email already taken");
     } else if (password.includes(" ") || confirmPassword.includes(" ")) {
@@ -55,8 +55,10 @@ router.post("/register", upload.single("avatar"), async (req, res, next) => {
     const { insertId } = await User.create({
       name,
       email,
+      password:req.body.password,
       avatarPath,
-      password,
+      authMethod:"email"
+      
     });
     const userId = Number(insertId);
     const token = jwt.sign(userId, process.env.JWT_SECRET);

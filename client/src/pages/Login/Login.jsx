@@ -1,7 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import OauthButtonGoogle from "components/OauthButtonGoogle/OauthButtonGoogle";
 import { authContext } from "contexts/auth";
+import Divider from 'components/Divider/Divider';
+import LogoAnimation from "components/Loader/LogoAnimation"
 
 // styles for this page are in index.scss
 export default function Login() {
@@ -9,7 +11,11 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true)
   const { login } = useContext(authContext);
+  useEffect(()=> {
+    setTimeout(()=> setLoading(false), 4000)
+  },[])
 
   async function handleSubmit(e) {
     try {
@@ -37,20 +43,22 @@ export default function Login() {
     }
   }
 
+  if(loading) return <LogoAnimation/>
+
   return (
-    <div className="page" id="login-page">
-      <h2>Login</h2>
+    <div className="page" id="login-page" style={ {
+          paddingTop: '6rem',
+        }
+      }>
+     
+      <div className="login-card">
+        <h2>Quotify</h2>
 
-      <form action="POST" className="form" onSubmit={handleSubmit}>
-        <OauthButtonGoogle />
+        <form action="POST" className="form" onSubmit={handleSubmit}>
+          <OauthButtonGoogle />
+          <Divider>OR</Divider>
 
-        <div className="or">
-          <hr />
-          <span className="text">Or</span>
-        </div>
-
-        <div className="form__field">
-          <label>Email:</label>
+         <div className="form__field">
           <input
             name="email"
             type="email"
@@ -60,9 +68,8 @@ export default function Login() {
             autoComplete="username"
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
-        <div className="form__field">
-          <label>Password:</label>
+          </div>
+         <div className="form__field">
           <input
             name="password"
             type="password"
@@ -75,14 +82,16 @@ export default function Login() {
         </div>
         {error && <div className="error-msg">{error}</div>}
         <button className="btn" disabled={isSubmitting}>
-          {isSubmitting ? "Logging in..." : "Login"}
+          {isSubmitting ? "Logging in..." : "Log In"}
         </button>
         <span>
           Don't have an account?
           <br />
           <Link to="/register">Create Account</Link>
         </span>
+        
       </form>
+      </div>
     </div>
   );
 }
